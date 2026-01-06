@@ -67,9 +67,9 @@ jobs:
     
     - name: Run tests with pytest
       env:
-        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        API_SECRET_KEY: ${{ secrets.API_SECRET_KEY }}
-        JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
+        OPENAI_API_KEY: ${{ github.actor == 'dependabot[bot]' && 'sk-test-key-for-dependabot' || secrets.OPENAI_API_KEY }}
+        API_SECRET_KEY: ${{ github.actor == 'dependabot[bot]' && 'test-api-secret-key-for-dependabot' || secrets.API_SECRET_KEY }}
+        JWT_SECRET_KEY: ${{ github.actor == 'dependabot[bot]' && 'test-jwt-secret-key-for-dependabot' || secrets.JWT_SECRET_KEY }}
         REDIS_ENABLED: false
       run: |
         pytest tests/ -v --cov=app --cov-report=xml --cov-report=term
@@ -88,9 +88,9 @@ jobs:
     
     - name: Test Docker image
       env:
-        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        API_SECRET_KEY: ${{ secrets.API_SECRET_KEY }}
-        JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
+        OPENAI_API_KEY: ${{ github.actor == 'dependabot[bot]' && 'sk-test-key-for-dependabot' || secrets.OPENAI_API_KEY }}
+        API_SECRET_KEY: ${{ github.actor == 'dependabot[bot]' && 'test-api-secret-key-for-dependabot' || secrets.API_SECRET_KEY }}
+        JWT_SECRET_KEY: ${{ github.actor == 'dependabot[bot]' && 'test-jwt-secret-key-for-dependabot' || secrets.JWT_SECRET_KEY }}
         REDIS_ENABLED: false
       run: |
         docker run --rm -e OPENAI_API_KEY -e API_SECRET_KEY -e JWT_SECRET_KEY -e REDIS_ENABLED multimodal-analytics:latest python -c "from app.main import app; print('OK')"
