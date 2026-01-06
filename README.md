@@ -1,4 +1,4 @@
-![Build Status](https://github.com/serhatsoysal/ai-driven-multimodal-analytics/workflows/CI/badge.svg)
+![Build Status](https://github.com/serhatsoysal/ai-driven-multimodal-analytics/actions/workflows/ci.yml/badge.svg)
 ![CodeQL](https://github.com/serhatsoysal/ai-driven-multimodal-analytics/workflows/CodeQL%20Security%20Analysis/badge.svg)
 ![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=serhatsoysal_ai-driven-multimodal-analytics&metric=alert_status)
 ![Coverage](https://sonarcloud.io/api/project_badges/measure?project=serhatsoysal_ai-driven-multimodal-analytics&metric=coverage)
