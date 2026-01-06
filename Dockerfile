@@ -18,7 +18,10 @@ COPY app ./app
 COPY env.example .env.example
 
 RUN useradd -m -u 1000 appuser && \
-    chown -R appuser:appuser /app
+    cp -r /root/.local /home/appuser/.local && \
+    chown -R appuser:appuser /app /home/appuser/.local
+
+ENV PATH=/home/appuser/.local/bin:$PATH
 
 USER appuser
 
