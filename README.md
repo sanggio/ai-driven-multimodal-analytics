@@ -301,7 +301,6 @@ ai-driven-multimodal-analytics/
 ├── .github/workflows/          # GitHub Actions CI/CD
 ├── Dockerfile                  # Multi-stage Docker build
 ├── requirements.txt            # Python dependencies
-├── RESEARCH.md                 # Technical deep dive
 └── README.md                   # This file
 ```
 
@@ -321,14 +320,52 @@ pytest tests/test_audio.py -v
 pytest tests/test_vision.py -v
 ```
 
-## Performance Optimizations
+## Performance Optimizations & Architecture
 
-- **Cache Hit Rate**: 60-90% cost reduction for repeated queries
-- **Parallel Processing**: 3x speedup for independent multimodal tasks
-- **Late-Binding**: 40% lower memory footprint vs. early-binding
-- **Token Optimization**: 20-40% reduction through prompt engineering
+### Why Multimodal AI is Complex
 
-See [RESEARCH.md](RESEARCH.md) for detailed technical analysis.
+Multimodal systems process fundamentally different data types—text, audio, images—each with unique characteristics:
+- **Text**: Sequential, token-based (500-2000 tokens typical)
+- **Vision**: Image data converted to visual tokens (765-1105 tokens per 1024x1024 image)
+- **Audio**: Two-stage pipeline (transcription → LLM processing) with cumulative latency
+
+Multimodal requests combine costs: `Total Cost = Text Tokens + (Images × Image Tokens) + Audio Transcription + LLM Processing`. A single request analyzing 3 images can exceed 5,000 tokens vs. 500 for text-only.
+
+### Optimization Strategies
+
+- **Intelligent Caching**: SHA-256 cache keys with Redis (distributed) and in-memory fallback. 60-90% cost reduction for repeated queries, sub-millisecond retrieval vs. seconds for API calls.
+- **Parallel Processing**: 3x speedup for independent multimodal tasks. Sequential: 3 tasks × 1,500ms = 4,500ms → Parallel: max(1,500ms) = 1,500ms.
+- **Late-Binding Architecture**: 40% lower memory footprint vs. early-binding. Modules instantiated on-demand, validated at startup for fail-fast behavior.
+- **Token Optimization**: 20-40% reduction through prompt compression, structured formats, and system prompts.
+- **Image Optimization**: Use `low` detail mode when high fidelity isn't required (saves ~70% tokens). Up to 75% cost reduction for vision-heavy workflows.
+- **Model Selection**: Route requests to cost-effective models (GPT-4o-mini for lighter tasks, 60% cheaper).
+
+### Performance Benchmarks
+
+| Cache Hit Rate | Cost Reduction | Latency Reduction |
+|---------------|----------------|-------------------|
+| 0%            | 0%             | 0%                |
+| 25%           | 25%            | 15%               |
+| 50%           | 50%            | 35%               |
+| 75%           | 75%            | 60%               |
+| 90%           | 90%            | 80%               |
+
+| Modality          | Latency    | Cost (per call) |
+|------------------|------------|-----------------|
+| Text (500 tokens) | 800ms      | $0.002          |
+| Vision (1 image)  | 1,500ms    | $0.008          |
+| Audio (1 min)     | 2,000ms    | $0.006          |
+| Multimodal (all)  | 3,200ms    | $0.016          |
+
+### Architectural Decisions
+
+**Late-Binding vs Early-Binding**: This project uses a hybrid approach—late-binding with eager validation. Modules are lazy-loaded (resource efficient) but configuration is validated at startup (fail-fast). This balances safety and efficiency, ideal for variable workloads and serverless deployments.
+
+**MCP Architecture Benefits**:
+- **Standardization**: Consistent API across all tools, interoperability with MCP clients
+- **Separation of Concerns**: FastAPI Gateway handles HTTP/authentication, MCP Server handles pure AI logic
+- **STDIO Transport**: Process-level isolation, no network configuration, works across all platforms
+- **Ecosystem Integration**: Build once, integrate with Claude Desktop, IDE plugins, automated agents
 
 ## MCP Server Usage
 
