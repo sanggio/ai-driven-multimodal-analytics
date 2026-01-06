@@ -11,8 +11,8 @@ class Settings(BaseSettings):
     )
 
     openai_api_key: str = Field(..., description="OpenAI API Key")
-    api_secret_key: str = Field(..., description="API Secret Key for authentication")
-    jwt_secret_key: str = Field(..., description="JWT Secret Key for token signing")
+    api_secret_key: str = Field(default="dev-secret-key-change-in-production", description="API Secret Key for authentication")
+    jwt_secret_key: str = Field(default="dev-jwt-secret-key-change-in-production", description="JWT Secret Key for token signing")
     redis_url: str = Field(default="redis://localhost:6379", description="Redis connection URL")
     redis_enabled: bool = Field(default=True, description="Enable Redis caching")
     cache_ttl: int = Field(default=3600, description="Cache TTL in seconds")

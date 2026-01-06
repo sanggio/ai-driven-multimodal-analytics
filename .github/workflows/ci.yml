@@ -68,6 +68,8 @@ jobs:
     - name: Run tests with pytest
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || 'sk-test-key' }}
+        API_SECRET_KEY: test-api-secret-key-for-ci
+        JWT_SECRET_KEY: test-jwt-secret-key-for-ci
         REDIS_ENABLED: false
       run: |
         pytest tests/ -v --cov=app --cov-report=xml --cov-report=term
@@ -86,7 +88,7 @@ jobs:
     
     - name: Test Docker image
       run: |
-        docker run --rm multimodal-analytics:latest python -c "from app.main import app; print('OK')"
+        docker run --rm -e OPENAI_API_KEY=sk-test -e API_SECRET_KEY=test -e JWT_SECRET_KEY=test -e REDIS_ENABLED=false multimodal-analytics:latest python -c "from app.main import app; print('OK')"
 
   security-scan:
     runs-on: ubuntu-latest
