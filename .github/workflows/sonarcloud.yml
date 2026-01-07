@@ -39,7 +39,8 @@ jobs:
         JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
         REDIS_ENABLED: false
       run: |
-        pytest tests/ -v --cov=app --cov-report=xml
+        pytest tests/ -v --cov=app --cov-report=xml --cov-report=term
+        ls -la coverage.xml || echo "Coverage file not found"
     
     - name: SonarCloud Scan
       uses: SonarSource/sonarqube-scan-action@v5.0.0
