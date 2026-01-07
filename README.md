@@ -1,7 +1,6 @@
 ![Build Status](https://github.com/serhatsoysal/ai-driven-multimodal-analytics/actions/workflows/ci.yml/badge.svg)
 ![CodeQL](https://github.com/serhatsoysal/ai-driven-multimodal-analytics/actions/workflows/codeql.yml/badge.svg)
 ![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=serhatsoysal_ai-driven-multimodal-analytics&metric=alert_status&branch=master)
-![Coverage](https://sonarcloud.io/api/project_badges/measure?project=serhatsoysal_ai-driven-multimodal-analytics&metric=coverage&branch=master)
 [![codecov](https://codecov.io/gh/serhatsoysal/ai-driven-multimodal-analytics/branch/master/graph/badge.svg)](https://codecov.io/gh/serhatsoysal/ai-driven-multimodal-analytics)
 ![Python Version](https://img.shields.io/badge/python-3.12+-blue.svg)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115.0-009688.svg)
